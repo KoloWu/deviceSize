@@ -4,8 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Device Size</title>
+    <style>
+        body{
+            font-size: 18px;
+            font-family: "Microsoft JhengHei", "Apple LiGothic Medium", "PMingLiU", "sans-serif", "serif";
+            }
+    </style>
 </head>
 <body>
-    
+    <h1>螢幕解析度查詢</h1>
+    <p>螢幕解析度與裝置解析度的差異，打開此網頁即自動執行，可了解螢幕實際的解析度與viewport解析度。</p>
+    <script type="text/javascript">
+        window.onload = function(){
+            var $inWidth = window.innerWidth;
+            var $iHeight = window.innerHeight;
+            var $diWidth = screen.width;
+            var $diHeight = screen.height;
+            var $Ratio = window.devicePixelRatio;
+            var $body = $('body');
+            $body.append('(JS) innerWidth是 = ' + $inWidth + '<br>' );
+            $body.append('(JS) innerHeight是 = ' + $iHeight + '<br><br>' );
+            $body.append('(JS) device Width是 = ' + $diWidth + '<br>' );
+            $body.append('(JS) device Height是 = ' + $diHeight + '<br><br>' );
+            $body.append('(JS) 此台裝置的ratio是 = ' + $Ratio + '<br>' );
+            if ('ontouchstart' in document.documentElement) {
+                $body.append('(JS) 此台裝置支援觸控功能<br>');
+            }else{
+                $body.append('(JS) 此台裝置<strong style="color:#f00">「不」</strong>支援觸控功能<br>');
+            }
+        }
+    </script>
 </body>
 </html>
